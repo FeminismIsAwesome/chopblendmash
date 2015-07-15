@@ -11,4 +11,8 @@ describe("RecipesController", function() {
 		expect(scope.preparationTechniques).toMatch("Blend");
 		expect(scope.preparationTechniques).toMatch("Mash");
 	});
+	it("Should have a list of different ways to style the food", function() {
+		expect(scope.stylingTechniques[0].name).toEqual("Sour");
+		expect(scope.stylingTechniques[0].details).toEqual("This is the way to prepare sour foods.");
+	});
 });

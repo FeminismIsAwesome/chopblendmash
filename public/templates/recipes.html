@@ -1,5 +1,7 @@
-Welcome to our app!
-Here are some ways you could make foods:
-<div ng-repeat="technique in preparationTechniques">
+<div class="technique animate-if" ng-repeat="technique in preparationTechniques" ng-click="switchPreparationTechnique()"  ng-if="displayCurrentTechnique($index)">
 	{{technique}}
+</div>
+<div class="technique animate-if" ng-repeat="technique in stylingTechniques" ng-click="switchStylingTechnique()" ng-if="displayCurrentStyling($index)">
+	{{technique.name}}
+	{{technique.details}}
 </div>
