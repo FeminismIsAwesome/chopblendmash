@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html  >
+<head>
+  <title>Chop! blend! mash!</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body ng-app="exampleApp" ng-controller="RecipesController">
+
+<meh ng-repeat="technique in preparationTechniques">
+	<div class="technique slide" ng-click="switchPreparationTechnique()"  ng-if="displayCurrentTechnique($index)">
+		{{technique}}
+	</div>
+</meh>
+<meh ng-repeat="technique in stylingTechniques">
+	<div class="technique slide" ng-click="switchStylingTechnique()" ng-if="displayCurrentStyling($index)">
+		{{technique.name}}
+		{{technique.details}}
+	</div> 
+</meh>
+<%= yield %>
+
+</body>
+</html>

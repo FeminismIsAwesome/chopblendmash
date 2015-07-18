@@ -1,0 +1,5 @@
+<meh ng-repeat="technique in techniques">
+	<div class="technique slide" ng-click="switchTechnique()" ng-if="displayCurrentTechnique($index)" ng-class="{'ng-leave':!displayCurrentTechnique($index), 'ng-enter': displayCurrentTechnique($index)}">
+		<div ng-transclude></div>
+	</div> 
+</meh>

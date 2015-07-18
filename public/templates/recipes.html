@@ -1,7 +1,38 @@
-<div class="technique animate-if" ng-repeat="technique in preparationTechniques" ng-click="switchPreparationTechnique()"  ng-if="displayCurrentTechnique($index)">
-	{{technique}}
-</div>
-<div class="technique animate-if" ng-repeat="technique in stylingTechniques" ng-click="switchStylingTechnique()" ng-if="displayCurrentStyling($index)">
-	{{technique.name}}
-	{{technique.details}}
-</div>
+<scroller techniques="preparationTechniques">
+	<div class="preparationTechnique">
+		<span class="bigEmphasis"> {{$parent.currentTechnique.name}}! </span>
+		<span class="description"> {{$parent.currentTechnique.description}}</span>
+	</div>
+</scroller>
+<scroller techniques="stylingTechniques">
+	<div class="stylingInstruction">
+		<div class="title-filler"></div>
+		<div class="title">{{$parent.currentTechnique.name}}</div>
+		<div class="ingredients">
+			<div class="ingredient" ng-repeat="ingredient in $parent.currentTechnique.ingredients">
+				{{ingredient}}
+			</div>
+		</div>
+	</div>
+</scroller>
+<scroller techniques="bodyIngredients" class="base-ingredient">
+	<div class="base-ingredient">
+		<div class="number">1</div>
+		<div class="number-title">part</div>
+		<div class="ingredient-large">{{$parent.currentTechnique}}</div>
+	</div>
+</scroller>
+<scroller techniques="sideIngredients" class="base-ingredient">
+	<div class="base-ingredient">
+		<div class="number">2</div>
+		<div class="number-title">parts</div>
+		<div class="ingredient-large">{{$parent.currentTechnique}}</div>
+	</div>
+</scroller>
+<scroller techniques="vegetableBase" class="base-ingredient">
+	<div class="base-ingredient">
+		<div class="number">3</div>
+		<div class="number-title">parts</div>
+		<div class="ingredient-large">{{$parent.currentTechnique}}</div>
+	</div>
+</scroller>

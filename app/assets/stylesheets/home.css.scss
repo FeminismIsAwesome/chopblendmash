@@ -1,3 +1,131 @@
+ .technique {
+  width:100%;
+  font-size: 32px;
+  margin: 0.5em;
+ }
+ .technique {
+  background:white;
+  border:1px solid black;
+  padding:10px;
+}
+
+.base-ingredient {
+	> div {
+	display: inline-block;
+	vertical-align:top;
+	}
+	.number {
+		width: 20%;
+	}
+	.number-title {
+	font-size: 18px;
+	height:100%;
+	 vertical-align: middle;
+	@include transform(rotate(270deg));
+	}
+	.ingredient-large {
+		width: 20%;
+	}
+}
+
+.stylingInstruction {
+	> div {
+		display: inline-block;
+		vertical-align:top;
+	}
+	.title-filler {
+		width:40%;
+	}
+	.title {
+		font-size: 18px;
+		@include transform(rotate(270deg));
+			height:100%;
+	 vertical-align: middle;
+	}
+	.ingredients {
+		width: 50%;
+	}
+	.ingredient {
+		font-size: 18px;
+	}
+}
+
+.preparationTechnique {
+	display: inline-block;
+	vertical-align:top;
+	.bigEmphasis {
+	  font-size: 48px;
+	  width: 33%;
+	}
+	.description {
+	  font-size: 18px;
+	  width: 60%;
+	}
+	span {
+	vertical-align:top;
+	display: inline-block;
+	}
+}
+
+.slide.ng-enter {
+  transition:0.5s linear all;
+  transform:translateY(-100px);
+}
+.slide.ng-enter.ng-enter-active {
+  transform:translateY(0);
+}
+
+@keyframes slideOutLeft {
+    to      { transform: translateX(-100%); }
+}
+@keyframes slideInRight {
+    from    { transform:translateX(100%); }
+    to      { transform: translateX(0); }
+}
+
+.ng-leave           { animation: slideOutLeft 0.5s both ease-in; z-index: 9999; }
+.ng-enter           { animation: slideInRight 0.5s both ease-in; z-index: 9999; }
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ .technique {
+  width:100%;
+  font-size: 32px;
+  margin: 0.5em;
+ }
+ .technique {
+  background:white;
+  border:1px solid black;
+  padding:10px;
+}
+.bigEmphasis {
+  font-size: 48px;
+  width: 33%;
+}
+.description {
+  font-size: 18px;
+  width: 60%;
+}
+.preparationTechnique {
+
+}
+
+.slide.ng-enter {
+  transition:0.5s linear all;
+  transform:translateY(-100px);
+}
+.slide.ng-enter.ng-enter-active {
+  transform:translateY(0);
+}
+
+@keyframes slideOutLeft {
+    to      { transform: translateX(-100%); }
+}
+@keyframes slideInRight {
+    from    { transform:translateX(100%); }
+    to      { transform: translateX(0); }
+}
+
+.ng-leave           { animation: slideOutLeft 0.5s both ease-in; z-index: 9999; }
+.ng-enter           { animation: slideInRight 0.5s both ease-in; z-index: 9999; }
