@@ -13,8 +13,10 @@ exampleApp.directive('scroller',function() {
       scope.currentTechnique = scope.techniques && scope.techniques[0];
       scope.switchTechnique = function() {
         scope.currentIndex = (scope.currentIndex + 1) % scope.techniques.length;
-        scope.currentTechnique = scope.techniques[scope.currentIndex];
       }
+      scope.$watch('currentIndex', function(newValue) {
+        scope.currentTechnique = scope.techniques[newValue];
+      });
       scope.displayCurrentTechnique = function(index) {
         return index === scope.currentIndex;
       }
@@ -45,7 +47,9 @@ exampleApp.controller('RecipesController', ['$scope', function($scope) {
   {name: "Sour", ingredients: ["1 part chopped dill", "2 parts lemon or dill pickle juice", "3 parts mayonaise"]},
   {name: "Salty", ingredients: ["1 part honey", "2 parts frozen orange juice", "10 parts plain yogurt", "cinnamon to taste"]},
   {name: "Savory", ingredients: ["1 part honey", "2 parts frozen orange juice", "10 parts plain yogurt", "cinnamon to taste"]},
-  {name: "Tart", ingredients: ["1 part yogurt", "1 part shredded cucumber", "salt to taste", "lemon juice to taste", "chopped fresh dill to taste"]}
+  {name: "Tart", ingredients: ["1 part yogurt", "1 part shredded cucumber", "salt to taste", "lemon juice to taste", "chopped fresh dill to taste"]},
+  {name: "Asian", ingredients: ["1 part sugar", "1 part soy sauce", "2 parts rice vinegar", "8 parts peanut butter", "salt and pepper to taste"]},
+  {name: "Spicy", ingredients: ["1 part turmeric","1 part cumin","1 part coriander", "15 parts mayonaise", "black pepper to taste"]}
   ];
   $scope.bodyIngredients = [
     "Ground Beef",
