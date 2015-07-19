@@ -4,7 +4,8 @@ exampleApp.directive('scroller',function() {
     transclude: true,
     templateUrl: '/templates/scroller.html',
     scope: {
-      techniques: '='
+      techniques: '=',
+      currentIndex: '='
     },
     link: function(scope, elem, attrs, ctrl, transcludeFn) {
       scope.currentIndex = 0;
@@ -21,6 +22,17 @@ exampleApp.directive('scroller',function() {
   };
 });
 exampleApp.controller('RecipesController', ['$scope', function($scope) {
+  $scope.makeRandom = function() {
+    $scope.indexForPreparation = random($scope.preparationTechniques.length);
+    $scope.indexForStyling = random($scope.stylingTechniques.length);
+    $scope.indexForBody = random($scope.bodyIngredients.length);
+    $scope.indexForSide = random($scope.sideIngredients.length);
+    $scope.indexForVegetableBase = random($scope.vegetableBase.length);
+    console.log($scope.indexForPreparation);
+  }; 
+  function random(max) {
+    return Math.floor(max * Math.random());
+  };
   $scope.preparationTechniques = [{name: "Chop", description: "Create a one of a kind salad! Just chop all ingredients, toss with dressing and enjoy."},
   {name:"Blend", description: "Make a savory soup by boiling the ingredients and putting them plus 2 cups water and the sauce in the blender." },
   {name: "Mash", description: "Like mashed potatoes only better! Boil all ingredients, drain the water, add the sauce and mash them for a tasty glop."},
