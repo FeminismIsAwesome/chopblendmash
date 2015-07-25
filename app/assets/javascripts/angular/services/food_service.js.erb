@@ -1,0 +1,38 @@
+app.service('foodService', function() {
+	return {
+		getVegetables: function() {
+			return [
+			    {name: "Kale", imageURL: "<%= image_url('foods/Kale1.jpg') %>"},
+			    {name:"Spinach", imageURL: "<%= image_url('foods/Spinach.jpg') %>" },
+			    {name:"Basil", imageURL: "<%= image_url('foods/Basil1.jpg') %>"},
+			    {name:"Cabbage", imageURL: "<%= image_url('foods/Cabbage1.jpg') %>"},
+			    {name:"Arugula", imageURL: "<%= image_url('foods/Arugula1.jpg') %>"},
+			    {name:"Leaf Lettuce", imageURL: "<%= image_url('foods/Lettuce1.jpg') %>"},
+			    {name:"Rainbow Chard", imageURL: "<%= image_url('foods/RainbowChard.jpg') %>"}
+			  ];	
+		},
+		getSideIngredients: function() {
+			return [
+			  {name: "Carrot", imageURL: "<%= image_url('foods/Carrot1.jpg') %>"},
+			    {name:"Broccoli", imageURL: "<%= image_url('foods/Broccoli1.jpg') %>" },
+			    {name:"Apple", imageURL: "<%= image_url('foods/Apple1.jpg') %>"},
+			    {name:"Berries", imageURL: "<%= image_url('foods/Berries1.jpg') %>"},
+			    {name:"Arugula", imageURL: "<%= image_url('foods/Arugula1.jpg') %>"},
+			    {name:"Zucchini", imageURL: "<%= image_url('foods/Zucchini1.jpg') %>"},
+			    {name:"Tomato", imageURL: "<%= image_url('foods/Tomato1.jpg') %>"},
+			    {name:"Beets", imageURL: "<%= image_url('foods/Beets1.jpg') %>"}
+			  ];
+		}, 
+		getBodyIngredients: function() {
+			return [
+		    {name: "Ground Beef", imageURL: "<%= image_url('foods/GroundBeef1.jpg') %>"},
+		    {name:"Cheese", imageURL: "<%= image_url('foods/Cheese1.jpg') %>" },
+		    {name:"Chicken", imageURL: "<%= image_url('foods/Chicken1.jpg') %>"},
+		    {name:"Eggs", imageURL: "<%= image_url('foods/Eggs1.jpg') %>"},
+		    {name:"Beans", imageURL: "<%= image_url('foods/Beans1.jpg') %>"},
+		    {name:"Bacon", imageURL: "<%= image_url('foods/Bacon1.jpg') %>"},
+		    {name:"Nuts", imageURL: "<%= image_url('foods/Nuts1.jpg') %>"}
+		  ]
+		}
+	};
+});
