@@ -19,21 +19,21 @@
 	<div class="base-ingredient">
 		<div class="number">1</div>
 		<div class="number-title">part</div>
-		<div class="ingredient-large">{{$parent.currentTechnique}}</div>
+		<div class="ingredient-large">{{$parent.currentTechnique.name}}</div>
 	</div>
 </scroller>
 <scroller techniques="sideIngredients" class="base-ingredient" current-index="indexForSide">
 	<div class="base-ingredient">
 		<div class="number">2</div>
 		<div class="number-title">parts</div>
-		<div class="ingredient-large">{{$parent.currentTechnique}}</div>
+		<div class="ingredient-large">{{$parent.currentTechnique.name}}</div>
 	</div>
 </scroller>
 <scroller techniques="vegetableBase" class="base-ingredient" current-index="indexForVegetableBase">
 	<div class="base-ingredient">
 		<div class="number">3</div>
 		<div class="number-title">parts</div>
-		<div class="ingredient-large">{{$parent.currentTechnique}}</div>
+		<div class="ingredient-large">{{$parent.currentTechnique.name}}</div> 
 	</div>
 </scroller>
 <div class="button" ng-click="makeRandom()">
