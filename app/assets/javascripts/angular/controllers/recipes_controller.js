@@ -1,26 +1,30 @@
 app.controller('RecipesController', ['$scope','$routeParams', 'foodService', 'stylingService', function($scope, $routeParams, foodService, stylingService) {
-    $scope.indexForPreparation = parseInt($routeParams.prepId) || 0;
-    $scope.indexForStyling = parseInt($routeParams.stylingId) || 0;
-    $scope.indexForBody = parseInt($routeParams.bodyId) || 0;
-    $scope.indexForSide = parseInt($routeParams.sideId) || 0;
-    $scope.indexForVegetableBase = parseInt($routeParams.vegetableId) || 0;
+    var indexesForPreparation = [
+    {index: 'indexForPreparation', list: 'preparationTechniques', routeId: 'prepId'},
+    {index: 'indexForStyling', list: 'stylingTechniques', routeId: 'stylingId'},
+    {index: 'indexForBody', list: 'bodyIngredients', routeId: 'bodyId'},
+    {index: 'indexForSide', list: 'sideIngredients', routeId: 'sideId'},
+    {index: 'indexForVegetableBase', list: 'vegetableBase', routeId: 'vegetableId'}];
+    indexesForPreparation.forEach(function(index) {
+      $scope[index.index] = parseInt($routeParams[index.routeId]) || 0;
+    });
   
   $scope.saveLink = function() {
-    alert(buildLink($scope.indexForPreparation, $scope.indexForStyling, $scope.indexForBody, $scope.indexForSide, $scope.indexForVegetableBase));
+    alert(buildLink());
   }
 
-  function buildLink(prepId, stylingId, bodyId, sideId, vegetableId) {
+  function buildLink() {
     var linkWithoutParams = window.location.href.split("?")[0];
-    return linkWithoutParams + "?prepId=" + prepId + "&stylingId=" + stylingId + "&bodyId=" + bodyId + "&sideId=" + sideId + "&vegetableId=" + vegetableId;
+    var routePiece = indexesForPreparation.map(function(index) {
+      return "?" + index.routeId + "=" + $scope[index.index];
+    }).join("&");
+    return linkWithoutParams + routePiece;
   }
 
   $scope.makeRandom = function() {
-    $scope.indexForPreparation = random($scope.preparationTechniques.length);
-    $scope.indexForStyling = random($scope.stylingTechniques.length);
-    $scope.indexForBody = random($scope.bodyIngredients.length);
-    $scope.indexForSide = random($scope.sideIngredients.length);
-    $scope.indexForVegetableBase = random($scope.vegetableBase.length);
-    console.log($scope.indexForPreparation);
+    indexesForPreparation.forEach(function(index) {
+      $scope[index.index] = random($scope[index.list].length);
+    });
   }; 
   function random(max) {
     return Math.floor(max * Math.random());
